@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task #1: Displaying Custom Error Messages</title>
+<style>
+  #error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+   
+<form id="userForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required minlength="6">
+    <button type="submit">Submit</button>
+</form>
+<p id="error"></p>
+  
+<script>
+  document.getElementById('userForm').addEventListener('submit', function(event) {
+    var usernameInput = document.getElementById('username');
+    var errorParagraph = document.getElementById('error');
+      
+    if (usernameInput.value.length < 6) {
+      errorParagraph.textContent = 'Username must be at least 6 characters long.';
+      event.preventDefault();
+    }
+  });
+</script>
+
+</body>
+</html>
